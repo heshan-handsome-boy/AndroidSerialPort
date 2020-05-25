@@ -216,4 +216,21 @@ public class SerialPortManager extends SerialPort {
         }
         return false;
     }
+
+    /**
+     * 发送字符
+     *
+     * @param object 发送消息内容，支持byte[]和string
+     * @return 发送是否成功
+     */
+    public boolean sendObject(String object) {
+        if (null != mFd && null != mFileInputStream && null != mFileOutputStream) {
+            if (null != mSendingHandler) {
+                Message message = Message.obtain();
+                message.obj = object;
+                return mSendingHandler.sendMessage(message);
+            }
+        }
+        return false;
+    }
 }
