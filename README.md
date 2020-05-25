@@ -98,3 +98,7 @@ mSerialPortManager.closeSerialPort();
 ```
 
 > PS：传输协议需自行封装
+
+## 修改
+
+* sendBytes -> sendString
